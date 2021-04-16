@@ -13,5 +13,5 @@ class MrpBom(models.Model) :
     @api.depends('company_id')
     def _compute_mrp_currency_id(self):
         #self.mrp_currency = self.company_id.currency_id.id
-        for rec in self
+        for rec in self:
             rec.mrp_currency = self.company_id.currency_id.id
