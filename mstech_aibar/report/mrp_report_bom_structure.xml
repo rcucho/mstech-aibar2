@@ -2,13 +2,14 @@
 <odoo>
 	<template id="report_mrp_bom_costs" inherit_id="mrp.report_mrp_bom_line">
 		    <!--<xpath expr="//t[@t-name='mrp.report_mrp_bom_line']" position="inside">-->
-			<xpath expr="//t[2]" position="after">
+			<xpath expr="//t[3]" position="after">
 			<td href="#" class="o_mrp_bom_action">Costos Fijos</td>
 		        <td/>
 			<td/>
 			<td/>
 			<td/>
-			<td t-if="data['report_structure'] != 'bom_structure'" class="o_mrp_bom_cost text-right">
+			<!--<td t-if="data['report_structure'] != 'bom_structure'" class="o_mrp_bom_cost text-right">-->
+			<td class="o_mrp_bom_cost text-right">
 				<span><t t-esc="data['costos_fijos']" t-options='{"widget": "monetary", "display_currency": currency}'/></span>
 			</td>
 		</xpath>
