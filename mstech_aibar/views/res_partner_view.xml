@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_partner_pricelist_rate" model="ir.ui.view">
+            <field name="name">res.partner.pricelist.rate</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="property_product_pricelist" groups="product.group_product_pricelist" attrs="{'invisible': [('is_company','=',False),('parent_id','!=',False)]}"/>
+                </xpath>
+            </data>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem name="Productos"
+            id="menu_product_root"
+            groups="stock.group_stock_user"
+            web_icon="mstech_aibar,static/description/products.png"/>
+        <menuitem name="Productos"
+            id="menu_product"
+            parent="menu_product_root"
+            action="product.product_template_action_all"/>
+	<menuitem name="Variantes de Productos"
+            id="menu_product_variant"
+            parent="menu_product_root"
+            action="product.product_normal_action"/>	
+	<menuitem name="Lista de Materiales"
+            id="menu_product_bom"
+            parent="menu_product_root"
+	    action="mrp.mrp_bom_form_action"/>
+	<menuitem name="Tarifas"
+            id="menu_pricelist"
+            parent="menu_product_root"
+            action="product.product_pricelist_action2"/>
+    </data>
+</odoo>
