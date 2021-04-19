@@ -7,6 +7,9 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
             <data>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="count_partner_quotation" options="{'no_open':True,'no_create': True}"/>
+                </xpath>>
                 <xpath expr="//tree/field[@name='customer_lead']" position="after">
                     <field name="mrp_lead" optional="hide" attrs="{'readonly': [('parent.state', 'not in', ['draft', 'sent', 'sale'])]}"/>
                 </xpath>
