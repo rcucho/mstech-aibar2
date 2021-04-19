@@ -9,12 +9,11 @@ class SaleOrder(models.Model) :
     partner_quotation = fields.One2many(comodel_name='res.partner', inverse_name='sale_order_ids', string='Historial')
     count_part_qu=fields.Integer(string='Cotizaciones Anteriores', compute='_onchange_count_part_qu')
     
+    @api.multi
     @api.depends('partner_quotation')
     def _onchange_count_part_qu(self):
         self.count_part_qu = len(self.partner_quotation)
    
-    
-    
     @api.model
     def _get_mrp_lead(self, product_tmpl_id):
         return product_tmpl_id.produce_delay
