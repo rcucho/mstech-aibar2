@@ -6,11 +6,11 @@ from odoo.exceptions import ValidationError, UserError, Warning
 
 class SaleOrder(models.Model) :
     _inherit = 'sale.order'
-    partner_quotation = fields.One2many(comodel_name='res.partner', inverse_name='sale_order_ids', string='Historial')
+    partner_quotation = fields.One2many(comodel_name='res.partner', inverse_name='sale_order_ids', string='Historial', compute='_onchange_count_part_qu')
     count_part_qu=fields.Integer(string='Cotizaciones Anteriores')
     
     @api.onchange('count_partner_quotation')
-    def onchange_count_part_qu(self):
+    def _onchange_count_part_qu(self):
         if count_partner_quotation:
             self.count_part_qu = len(self.partner_quotation)
     
