@@ -6,7 +6,8 @@ from odoo.exceptions import ValidationError, UserError, Warning
 
 class SaleOrder(models.Model) :
     _inherit = 'sale.order'
-
+    count_partner_quotation = fields.One2many(comodel_name='res.partner', inverse_name='sale_order_ids', string='Historial')
+    
     @api.model
     def _get_mrp_lead(self, product_tmpl_id):
         return product_tmpl_id.produce_delay
