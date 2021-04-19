@@ -8,6 +8,13 @@ class SaleOrder(models.Model) :
     _inherit = 'sale.order'
     count_partner_quotation = fields.One2many(comodel_name='res.partner', inverse_name='sale_order_ids', string='Historial')
     
+    @api.onchange('count_partner_quotation')
+    def onchange_count_partner_quotation(self):
+            if count_partner_quotation:
+                for rec in self:
+                    count_partner_quotation = rec.count_partner_quotation
+    
+    
     @api.model
     def _get_mrp_lead(self, product_tmpl_id):
         return product_tmpl_id.produce_delay
