@@ -9,7 +9,7 @@ class SaleOrder(models.Model) :
     partner_quotation = fields.One2many(comodel_name='res.partner', inverse_name='sale_order_ids', string='Historial')
     count_part_qu=fields.Integer(string='Cotizaciones Anteriores', compute='_onchange_count_part_qu')
     
-    @api.onchange('count_partner_quotation')
+    @api.onchange('partner_quotation')
     def _onchange_count_part_qu(self):
         if partner_quotation:
             self.count_part_qu = len(self.partner_quotation)
