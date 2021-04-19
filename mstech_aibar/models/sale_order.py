@@ -11,9 +11,10 @@ class SaleOrder(models.Model) :
     
     @api.depends('partner_quotation')
     def _onchange_count_part_qu(self):
-        for rec in self:
-            rec.count_part_qu = len(self.partner_quotation)
-   
+        #for rec in self:
+            #rec.count_part_qu = len(self.partner_quotation)
+        self.count_part_qu = len(self.product_id.sales_orders_ids) 
+
     @api.model
     def _get_mrp_lead(self, product_tmpl_id):
         return product_tmpl_id.produce_delay
