@@ -11,8 +11,6 @@ class SaleOrder(models.Model) :
     
     @api.onchange('partner_id')
     def _onchange_count_part_qu(self):
-        #for rec in self:
-            #rec.count_part_qu = len(self.partner_quotation)
         self.count_part_qu = len(self.partner_id.sale_order_ids) 
 
     @api.model
