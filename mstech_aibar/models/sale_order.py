@@ -13,7 +13,7 @@ class SaleOrder(models.Model) :
     def _onchange_count_part_qu(self):
         #for rec in self:
             #rec.count_part_qu = len(self.partner_quotation)
-        self.count_part_qu = len(self.product_id.sales_orders_ids) 
+        self.count_part_qu = len(self.partner_id.sales_orders_ids) 
 
     @api.model
     def _get_mrp_lead(self, product_tmpl_id):
